@@ -9,10 +9,13 @@ export default function TextForm(props) {
 		setText(e.target.value);
 	};
 
+	const handleLowClick = (e) => {
+		setText(text.toLowerCase());
+	};
 	const [text, setText] = useState("");
 	return (
 		<>
-			<div className="mb-3">
+			<div className="mb-3 container">
 				<label htmlFor="myBox" className="form-label">
 					<h2>{props.heading}:</h2>
 				</label>
@@ -23,10 +26,26 @@ export default function TextForm(props) {
 					className="form-control"
 					id="myBox"
 					rows="10"></textarea>
+				<button
+					onClick={handleUpClick}
+					className="btn btn-primary my-2">
+					Convert to UPPER CASE
+				</button>
+				<button
+					onClick={handleLowClick}
+					className="btn btn-primary my-2 mx-4">
+					Convert to lower case
+				</button>
 			</div>
-			<button onClick={handleUpClick} className="btn btn-primary">
-				Convert to UPPER CASE
-			</button>
+			<div className="container-fluid my-2">
+				<h1>Your Text Summary</h1>
+				<p>
+					{text.split(" ").length} words, {text.length} chars
+				</p>
+				<p>{0.008 * text.split(" ").length} to read</p>
+				<h2>preview text</h2>
+				<p>{text}</p>
+			</div>
 		</>
 	);
 }
