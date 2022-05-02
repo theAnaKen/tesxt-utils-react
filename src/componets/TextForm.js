@@ -12,6 +12,11 @@ export default function TextForm(props) {
 	const handleLowClick = (e) => {
 		setText(text.toLowerCase());
 	};
+
+	const handleClear = (e) => {
+		setText("");
+	};
+
 	const [text, setText] = useState("");
 	return (
 		<>
@@ -32,6 +37,11 @@ export default function TextForm(props) {
 					Convert to UPPER CASE
 				</button>
 				<button
+					onClick={handleClear}
+					className="btn btn-primary my-2 mx-3">
+					Clear Text
+				</button>
+				<button
 					onClick={handleLowClick}
 					className="btn btn-primary my-2 mx-4">
 					Convert to lower case
@@ -40,7 +50,7 @@ export default function TextForm(props) {
 			<div className="container-fluid my-2">
 				<h1>Your Text Summary</h1>
 				<p>
-					{text.split(" ").length} words, {text.length} chars
+					{text.split(" ").length} words, {text.length} characters
 				</p>
 				<p>{0.008 * text.split(" ").length} to read</p>
 				<h2>preview text</h2>
