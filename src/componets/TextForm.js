@@ -17,6 +17,17 @@ export default function TextForm(props) {
 		setText("");
 	};
 
+	const handleCopy = () => {
+		var text = document.getElementById("myBox");
+		text.select();
+		navigator.clipboard.writeText(text.value);
+	};
+
+	const handleExtraSpaces = () => {
+		let newText = text.split(/[ ]+/);
+		setText(newText.join(" "));
+	};
+
 	const [text, setText] = useState("");
 	return (
 		<>
@@ -33,18 +44,26 @@ export default function TextForm(props) {
 					rows="10"></textarea>
 				<button
 					onClick={handleUpClick}
-					className="btn btn-primary my-2">
+					className="btn btn-primary my-1">
 					Convert to UPPER CASE
 				</button>
 				<button
 					onClick={handleClear}
-					className="btn btn-primary my-2 mx-3">
+					className="btn btn-primary my-2 mx-1">
 					Clear Text
 				</button>
 				<button
 					onClick={handleLowClick}
-					className="btn btn-primary my-2 mx-4">
+					className="btn btn-primary my-2 mx-1">
 					Convert to lower case
+				</button>
+				<button className="btn btn-primary mx-1" onClick={handleCopy}>
+					Copy Text
+				</button>
+				<button
+					className="btn btn-primary mx-1"
+					onClick={handleExtraSpaces}>
+					Remove extra spaces
 				</button>
 			</div>
 			<div className="container-fluid my-2">
