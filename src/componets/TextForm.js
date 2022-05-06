@@ -41,7 +41,17 @@ export default function TextForm(props) {
 					onChange={handleOnChange}
 					className="form-control"
 					id="myBox"
-					rows="10"></textarea>
+					rows="10"
+					style={{
+						backgroundColor:
+							props.mode === "dark"
+								? "hsl(210,11%,20%)"
+								: "#F8F9FA",
+						color:
+							props.mode === "light"
+								? "hsl(210,11%,20%)"
+								: "#F8F9FA",
+					}}></textarea>
 				<button
 					onClick={handleUpClick}
 					className="btn btn-primary my-1">
@@ -73,7 +83,7 @@ export default function TextForm(props) {
 				</p>
 				<p>{0.008 * text.split(" ").length} to read</p>
 				<h2>preview text</h2>
-				<p>{text}</p>
+				<p>{text.length <= 0 ? "Enter Text To Preview" : text}</p>
 			</div>
 		</>
 	);

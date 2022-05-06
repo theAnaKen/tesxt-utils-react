@@ -20,6 +20,7 @@ export default function About() {
 
 			document.getElementsByTagName("Body")[0].style.backgroundColor =
 				"#efefef";
+
 			document.getElementsByTagName("Body")[0].style.color = "#333";
 
 			setButtonText("Enable Dark mode");
@@ -128,7 +129,7 @@ export default function About() {
 						<div className="accordion-body" style={myStyle}>
 							<strong>
 								This is the third item's accordion body.
-							</strong>{" "}
+							</strong>
 							It is hidden by default, until the collapse plugin
 							adds the appropriate classes that we use to style
 							each element. These classes control the overall
@@ -141,14 +142,6 @@ export default function About() {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="container my-3">
-				<button
-					type="button"
-					className="btn btn-primary"
-					onClick={ToggleStyle}>
-					{ButtonText}
-				</button>
 			</div>
 		</div>
 	);
