@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function TextForm(props) {
 	const handleUpClick = () => {
 		setText(text.toUpperCase());
+		props.showAlert("converted to uppercase", "success");
 	};
 
 	const handleOnChange = (e) => {
@@ -11,21 +12,25 @@ export default function TextForm(props) {
 
 	const handleLowClick = (e) => {
 		setText(text.toLowerCase());
+		props.showAlert("converted to lowercase", "success");
 	};
 
 	const handleClear = (e) => {
 		setText("");
+		props.showAlert("Cleared Input Feild", "success");
 	};
 
 	const handleCopy = () => {
 		var text = document.getElementById("myBox");
 		text.select();
 		navigator.clipboard.writeText(text.value);
+		props.showAlert("coppied text to clipboard", "success");
 	};
 
 	const handleExtraSpaces = () => {
 		let newText = text.split(/[ ]+/);
 		setText(newText.join(" "));
+		props.showAlert("removed extra spaces", "success");
 	};
 
 	const [text, setText] = useState("");
