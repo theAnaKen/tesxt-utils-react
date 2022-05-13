@@ -5,7 +5,7 @@ import Alert from "./componets/Alert";
 import Navbar from "./componets/Navbar";
 import TextForm from "./componets/TextForm";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 	const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
