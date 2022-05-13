@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 Navbar.propTypes = {
 	title: PropTypes.string.isRequired,
@@ -17,9 +16,9 @@ export default function Navbar(props) {
 		<nav
 			className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
 			<div className="container-fluid">
-				<Link className="navbar-brand" to="/">
+				<a className="navbar-brand" href="/">
 					{props.title}
-				</Link>
+				</a>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -35,17 +34,17 @@ export default function Navbar(props) {
 					id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<Link
+							<a
 								className="nav-link active"
 								aria-current="page"
-								to="/">
+								href="/">
 								Home
-							</Link>
+							</a>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/about">
+							<a className="nav-link" href="/">
 								{props.aboutText}
-							</Link>
+							</a>
 						</li>
 					</ul>
 					<div
