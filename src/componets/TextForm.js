@@ -24,6 +24,7 @@ export default function TextForm(props) {
 		var text = document.getElementById("myBox");
 		text.select();
 		navigator.clipboard.writeText(text.value);
+		document.getSelection().removeAllRanges();
 		props.showAlert("coppied text to clipboard", "success");
 	};
 
@@ -58,25 +59,32 @@ export default function TextForm(props) {
 								: "#F8F9FA",
 					}}></textarea>
 				<button
+					disabled={text.length === 0}
 					onClick={handleUpClick}
-					className="btn btn-primary my-1">
+					className="btn btn-primary my-1 mx-1">
 					Convert to UPPER CASE
 				</button>
 				<button
+					disabled={text.length === 0}
 					onClick={handleClear}
-					className="btn btn-primary my-2 mx-1">
+					className="btn btn-primary my-1 mx-1">
 					Clear Text
 				</button>
 				<button
+					disabled={text.length === 0}
 					onClick={handleLowClick}
-					className="btn btn-primary my-2 mx-1">
+					className="btn btn-primary my-1 mx-1">
 					Convert to lower case
 				</button>
-				<button className="btn btn-primary mx-1" onClick={handleCopy}>
+				<button
+					disabled={text.length === 0}
+					className="btn btn-primary mx-1 my-1"
+					onClick={handleCopy}>
 					Copy Text
 				</button>
 				<button
-					className="btn btn-primary mx-1"
+					disabled={text.length === 0}
+					className="btn btn-primary mx-1 my-1"
 					onClick={handleExtraSpaces}>
 					Remove extra spaces
 				</button>
@@ -84,11 +92,22 @@ export default function TextForm(props) {
 			<div className="container-fluid my-2">
 				<h1>Your Text Summary</h1>
 				<p>
-					{text.split(" ").length} words, {text.length} characters
+					{
+						text.split(" ").filter((e) => {
+							return e.length !== 0;
+						}).length
+					}{" "}
+					words, {text.length} characters
 				</p>
-				<p>{0.008 * text.split(" ").length} to read</p>
+				<p>
+					{0.008 *
+						text.split(" ").filter((e) => {
+							return e.length !== 0;
+						}).length}{" "}
+					minutes to read
+				</p>
 				<h2>preview text</h2>
-				<p>{text.length <= 0 ? "Enter Text To Preview" : text}</p>
+				<p>{text.length <= 0 ? "Nothing to preview" : text}</p>
 			</div>
 		</>
 	);
