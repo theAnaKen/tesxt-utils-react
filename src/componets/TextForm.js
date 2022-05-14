@@ -10,14 +10,14 @@ export default function TextForm(props) {
 		setText(e.target.value);
 	};
 
-	const handleLowClick = (e) => {
+	const handleLowClick = () => {
 		setText(text.toLowerCase());
 		props.showAlert("converted to lowercase", "success");
 	};
 
-	const handleClear = (e) => {
+	const handleClear = () => {
 		setText("");
-		props.showAlert("Cleared Input Feild", "success");
+		props.showAlert("Cleared Input Field", "success");
 	};
 
 	const handleCopy = () => {
