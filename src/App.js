@@ -22,7 +22,6 @@ function App() {
 	};
 
 	const toggleMode = (cls) => {
-		console.log(cls);
 		const removeClass = () => {
 			document.body.classList.remove("bg-light");
 			document.body.classList.remove("bg-dark");
@@ -35,22 +34,17 @@ function App() {
 		document.body.classList.add(`bg-${cls}`);
 		if (mode === "light") {
 			setMode("dark");
-			// document.body.style.backgroundColor = "hsl(210,11%,20%)";
 			document.body.style.color = "hsl(210,11%,20%)";
 			showAlert("Dark mode has been enabled", "success");
 		} else {
 			setMode("light");
-			// document.body.style.backgroundColor = "#F8F9FA";
 			document.body.style.color = "#F8F9FA";
 			showAlert("light mode has been enabled", "success");
 		}
-		// mode === "light" ? setMode("dark") : setMode("light");
 	};
 	return (
 		<>
 			<Router>
-				{/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-				{/* <Navbar/> */}
 				<Navbar
 					title="TextUtils"
 					aboutText="About Text Utils"
@@ -77,13 +71,7 @@ function App() {
 							}
 						/>
 					</Routes>
-					{/* <TextForm
-					heading="Enter the text to analyze below"
-					mode={mode}
-					showAlert={showAlert}
-				/> */}
 				</div>
-				{/* <About /> */}
 			</Router>
 		</>
 	);

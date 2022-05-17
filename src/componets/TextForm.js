@@ -21,10 +21,8 @@ export default function TextForm(props) {
 	};
 
 	const handleCopy = () => {
-		var text = document.getElementById("myBox");
-		text.select();
-		navigator.clipboard.writeText(text.value);
-		document.getSelection().removeAllRanges();
+		// copy text function
+		navigator.clipboard.writeText(text);
 		props.showAlert("coppied text to clipboard", "success");
 	};
 
@@ -98,7 +96,7 @@ export default function TextForm(props) {
 				<h1>Your Text Summary</h1>
 				<p>
 					{
-						text.split(" ").filter((e) => {
+						text.split(/\s+/).filter((e) => {
 							return e.length !== 0;
 						}).length
 					}{" "}
