@@ -48,21 +48,64 @@ export default function Navbar(props) {
 							</Link>
 						</li>
 					</ul>
+					<div className="d-flex">
+						<div
+							className="bg-primary rounded mx-2"
+							style={{
+								height: "1.8rem",
+								width: "1.8rem",
+								cursor: "pointer",
+								fontSize: "1.5rem",
+								outline: "1px solid #eee",
+							}}
+							onClick={() => {
+								props.toggleMode("primary");
+							}}>
+							{" "}
+						</div>
+						<div
+							className="bg-danger rounded mx-2"
+							style={{
+								height: "1.8rem",
+								width: "1.8rem",
+								outline: "1px solid #eee",
+								cursor: "pointer",
+							}}
+							onClick={() => {
+								props.toggleMode("danger");
+							}}></div>
+						<div
+							className="bg-warning rounded mx-2"
+							style={{
+								height: "1.8rem",
+								width: "1.8rem",
+								cursor: "pointer",
+							}}
+							onClick={() => {
+								props.toggleMode("warning");
+							}}></div>
+
+						<div
+							className="bg-success rounded mx-2"
+							style={{
+								height: "1.8rem",
+								width: "1.8rem",
+								cursor: "pointer",
+								outline: "1px solid #eee",
+							}}
+							onClick={() => {
+								props.toggleMode("success");
+							}}></div>
+					</div>
 					<div
 						className={`form-check form-switch text-${
 							props.mode === "light" ? "dark" : "light"
 						}`}>
-						<input
-							className="form-check-input"
-							onClick={props.toggleMode}
-							type="checkbox"
-							id="flexSwitchCheckDefault"
-						/>
-						<label
-							className="form-check-label"
-							htmlFor="flexSwitchCheckDefault">
-							Enable DarkMode
-						</label>
+						<h6>
+							<abbr title="Press the color palatte again for dark/Light theme">
+								Toggle B/w dark/Light mode
+							</abbr>
+						</h6>
 					</div>
 				</div>
 			</div>

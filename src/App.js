@@ -21,18 +21,27 @@ function App() {
 		}, 1500);
 	};
 
-	const toggleMode = () => {
+	const toggleMode = (cls) => {
+		console.log(cls);
+		const removeClass = () => {
+			document.body.classList.remove("bg-light");
+			document.body.classList.remove("bg-dark");
+			document.body.classList.remove("bg-warning");
+			document.body.classList.remove("bg-success");
+			document.body.classList.remove("bg-danger");
+			document.body.classList.remove("bg-primary");
+		};
+		removeClass();
+		document.body.classList.add(`bg-${cls}`);
 		if (mode === "light") {
 			setMode("dark");
-			document.body.style.backgroundColor = "hsl(210,11%,20%)";
-			document.body.style.color = "#eee";
-			document.title = "TextUtils - Dark Mode";
+			// document.body.style.backgroundColor = "hsl(210,11%,20%)";
+			document.body.style.color = "hsl(210,11%,20%)";
 			showAlert("Dark mode has been enabled", "success");
 		} else {
 			setMode("light");
-			document.body.style.backgroundColor = "#F8F9FA";
-			document.body.style.color = "#212529";
-			document.title = "TextUtils - Light Mode";
+			// document.body.style.backgroundColor = "#F8F9FA";
+			document.body.style.color = "#F8F9FA";
 			showAlert("light mode has been enabled", "success");
 		}
 		// mode === "light" ? setMode("dark") : setMode("light");
